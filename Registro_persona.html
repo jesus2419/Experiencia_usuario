@@ -1,8 +1,4 @@
 
-<!-- Ailin Elizabeth Granados Cantu
-Capa intermedia
-7-sep-2023 -->
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,39 +11,47 @@ Capa intermedia
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- Archivo diseño de pagina en css  -->
-  <link rel="stylesheet" type="text/css" href="../Estilos/Diseño.css">
+  <link rel="stylesheet" type="text/css" href="Tienda_enlinea/Estilos/Diseño.css">
 
 <!-- Archivo de java script para el comportamiento del codigo -->
        <script src="Logica.js"></script>
 </head>
 
 
-<body class="degradado" style="width: 100%; height: 100%;">
-  <nav class="navbar navbar-expand-sm sticky-top">
-    <div class="container-fluid">
-      <!-- <a class="navbar-brand" href="#">Logo</a> -->
-      <img src="../IMAGENES/logo_sin_fondo.png" alt="Logo" style="width:40px;" class="rounded-pill">
+<body  style="width: 100%; height: 100%;">
+  <nav class="navegacion-principal navbar-expand-sm">
+    <div class="boton-menu">
+
+      <img src="Tienda_enlinea/IMAGENES/logo_sirloin_small.jpg" alt="Logo" style="width:60px;" class="rounded-pill">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="Landing_page.html">landing page</a>
-          </li>
-          <li class="nav-item">
+          
+          <li class="boton-menu">
             <a class="nav-link" href="Pagina_inicio.html">Inicio</a>
+          </li>
+
+          <li class="boton-menu">
+            <a class="nav-link" href="Landing_page.html">Menú</a>
+          </li>
+       
+          <li class="boton-menu active">
+            <a class="nav-link" href="Landing_page.html">Registro</a>
           </li>
        
 
         </ul>
         <form class="d-flex">
           <input class="form-control me-2" type="text" placeholder="Search">
-          <button class="btn " type="button">Search</button>
+          <button class="btn button_white" type="button">Search</button>
         </form>
       </div>
     </div>
   </nav>
+
   <!-- degradado con datos para registro-->
     
       <div class="container p-5 my-5 contenedor-forms">
@@ -95,11 +99,7 @@ Capa intermedia
            <option>Administrador*</option>
          </select>
 
-         <!-- Elegir de una lista, tipo privacidad -->
-         <label for="rol" class="form-label">Elige tu tipo de usuario</label>
-         <select class="form-select" id="rol" name="rol-usuario">
-           <option>Publico</option>
-           <option>Privado</option>
+
            
          </select>
 
@@ -121,7 +121,7 @@ Capa intermedia
 
           <!-- Boton de submit -->
           <br>
-          <input type="submit" class="btn button_pink" value="REGISTRAR"><br>
+          <input type="submit" class=" boton-registrar" value="REGISTRAR"><br>
 
         </form> 
       </div>
