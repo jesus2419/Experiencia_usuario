@@ -31,15 +31,15 @@
         <ul class="navbar-nav me-auto">
           
           <li class="boton-menu">
-            <a class="nav-link" href="Pagina_inicio.html">Inicio</a>
+            <a class="nav-link" href="Pagina_inicio.php">Inicio</a>
           </li>
 
           <li class="boton-menu active">
-            <a class="nav-link" href="inicio_sesion.html">iniciar sesion</a>
+            <a class="nav-link" href="inicio_sesion.php">iniciar sesion</a>
           </li>
        
           <li class="boton-menu">
-            <a class="nav-link" href="Registro_persona.html">Registro</a>
+            <a class="nav-link" href="Registro_persona.php">Registro</a>
           </li>
 
         </ul>
@@ -55,7 +55,7 @@
     
       <div class="container p-5 my-5 contenedor-forms" >
         
-        <form action="/action_page.php">
+        <form  action="php/procesar_login.php" method="post" enctype="multipart/form-data">
 
           
           <!-- usuario -->

@@ -25,6 +25,65 @@
   <!-- Archivo de java script para el comportamiento del codigo -->
   <script src="Logica.js"></script>
 
+
+
+  <?php
+// Obtén el valor de usuario pasado en la URL
+if (isset($_GET['usuario'])) {
+    $usuario = $_GET['usuario'];
+    //echo "Usuario: " . $usuario;
+} else {
+    echo "No se recibió un nombre de usuario.";
+}
+?>
+
+
+
+       <?php
+    // Realizar la conexión a la base de datos
+    include('php/conexion.php');
+
+    // Consulta para obtener información del usuario 'geralt'
+    $sqlConsulta = "SELECT id ,
+    nombre ,
+    apellido ,
+    email ,
+    usuario ,
+    pass ,
+    fecha_nac ,
+    genero ,
+    imagen  from usuarios
+                    WHERE
+                        usuario = '$usuario'";
+
+    $resultConsulta = $conn->query($sqlConsulta);
+
+    if ($resultConsulta->num_rows > 0) {
+        // Obtener el primer resultado (asumiendo que solo habrá uno)
+        $row = $resultConsulta->fetch_assoc();
+
+        // Asignar los valores a variables para usar en el HTML
+        $usuaNombre = $row["nombre"];
+        $idd = $row["id"];
+        $usuaContra = $row["pass"];
+       
+        $nombre = $row["nombre"];
+        $apellidop = $row["apellido"];
+       
+        $sexo = $row["genero"];
+        
+        $correo = $row["email"];
+        $fecha = $row["fecha_nac"];
+        // ... Continuar con los demás campos ...
+    } else {
+        echo "No se encontraron resultados para el usuario '$usuario'.";
+    }
+
+    // Cerrar la conexión
+    $conn->close();
+    ?>
+
+
 </head>
 
 <body >
@@ -49,26 +108,56 @@
 
   <nav class="navegacion-principal navbar-expand-sm">
     <div class="boton-menu">
+    <?php
+    // Obtén el nombre de usuario de alguna manera
+     $nombreUsuario = $idd; // Esto es un ejemplo, debes obtener el nombre de usuario de acuerdo a tu lógica
+     //echo $idd;
+    if ($nombreUsuario) {
+    // Escapa el nombre de usuario para asegurarte de que sea seguro para la URL
+        $nombreUsuarioURL = urlencode($nombreUsuario);
+    
+       // Genera la URL de la imagen con el nombre de usuario como parámetro
+      $urlImagen = "php/mostrar2.php?id=$nombreUsuarioURL";
+
+       // Muestra la imagen
+        echo "<img src='$urlImagen' alt='Imagen desde la base de datos' style= 'width:60px;' class= 'rounded-pill'>";
+    } else {
+         echo "No se ha especificado un nombre de usuario.";
+    }
+    ?>
+    <!--
 
       <img src="Tienda_enlinea/IMAGENES/logo_sirloin_small.jpg" alt="Logo" style="width:60px;" class="rounded-pill">
+  -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav me-auto">
+
           
-          <li class="boton-menu active ">
-            <a class="nav-link" href="Pagina_inicio.html">Inicio</a>
+        <?php
+
+        echo "<li class='boton-menu active'>
+        <a class='nav-link' href='#'>$usuario</a>
+      </li>";
+
+        ?>
+          <li class="boton-menu ">
+            <a class="nav-link" href="Pagina_inicio.php">Salir</a>
           </li>
 
+          <!--
+
           <li class="boton-menu">
-            <a class="nav-link" href="inicio_sesion.html">iniciar sesion</a>
+            <a class="nav-link" href="inicio_sesion.php">iniciar sesion</a>
           </li>
        
           <li class="boton-menu">
-            <a class="nav-link" href="Registro_persona.html">Registro</a>
+            <a class="nav-link" href="Registro_persona.php">Registro</a>
           </li>
+  -->
        
 
         </ul>

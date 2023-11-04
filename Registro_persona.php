@@ -31,15 +31,15 @@
         <ul class="navbar-nav me-auto">
           
           <li class="boton-menu">
-            <a class="nav-link" href="Pagina_inicio.html">Inicio</a>
+            <a class="nav-link" href="Pagina_inicio.php">Inicio</a>
           </li>
 
           <li class="boton-menu">
-            <a class="nav-link" href="inicio_sesion.html">iniciar sesion</a>
+            <a class="nav-link" href="inicio_sesion.php">iniciar sesion</a>
           </li>
        
           <li class="boton-menu active">
-            <a class="nav-link" href="Registro_persona.html">Registro</a>
+            <a class="nav-link" href="Registro_persona.php">Registro</a>
           </li>
 
         </ul>
@@ -55,14 +55,14 @@
     
       <div class="container p-5 my-5 contenedor-forms">
         
-        <form action="/action_page.php">
+        <form  action="php/procesar_registro.php" method="post" enctype="multipart/form-data">
 
           <!--PEDIMOS LOS DATOS DE REGISTRO-->
           <!-- nombre y apellidos -->
           <div class="input-group ">
            
-            <input type="text" class="form-control" placeholder="Nombre">
-            <input type="text" class="form-control" placeholder="Apellido">
+            <input type="text" class="form-control" placeholder="Nombre" name="Nombre">
+            <input type="text" class="form-control" placeholder="Apellido"  id="Apellido" name="Apellido">
 
           </div>
 
@@ -89,18 +89,7 @@
           <label for="fecha_nac">Fecha de nacimiento</label>
         </div>
 
-         <!-- Elegir de una lista, tipo de usuario -->
-         <label for="rol" class="form-label">Elige tu tipo de cuenta</label>
-         <select class="form-select" id="rol" name="rol-usuario">
-           
-           <option>Cliente</option>
-           <option>Vendedor</option>
-           <option>Administrador*</option>
-         </select>
-
-
-           
-         </select>
+        
 
           <!-- Elegir de una lista, Genero -->
           <label for="rol" class="form-label">Genero</label>
@@ -113,10 +102,39 @@
 
                
         <!-- imagen de usuario -->
+        <!--
         <div class="col form-floating mt-3 mb-3">
           <input type="file" class="form-control" id="imagen" name="imagen" required>
           <label for="imagen">Imagen</label>
         </div>
+        -->
+
+         <!-- imagen de usuario -->
+         <div class="col form-floating mt-3 mb-3">
+          <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*" onchange="mostrarImagen(event)">
+          <label for="imagen">Imagen</label>
+        </div>
+        <img id="imagenMostrada" src="#" alt="Vista previa de la imagen" style="display: none; max-width: 100%; height: auto;">
+
+        <script> 
+         function mostrarImagen(event) {
+         const input = event.target;
+         const imgMostrada = document.getElementById('imagenMostrada');
+
+          // Asegúrate de que se haya seleccionado un archivo
+          if (input.files && input.files[0]) {
+           const reader = new FileReader();
+
+          reader.onload = function(e) {
+            imgMostrada.src = e.target.result;
+            imgMostrada.style.display = 'block';  // Muestra la imagen
+          };
+
+           reader.readAsDataURL(input.files[0]);  // Lee el archivo como una URL de datos
+          }
+          }
+
+          </script>
 
           <!-- Boton de submit -->
           <br>
