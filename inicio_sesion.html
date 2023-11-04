@@ -18,7 +18,7 @@
 </head>
 
 
-<body  style="width: 100%; height: 100%;">
+<body  style="width: 100%; height: 100%;" >
   <nav class="navegacion-principal navbar-expand-sm">
     <div class="boton-menu">
 
@@ -34,11 +34,11 @@
             <a class="nav-link" href="Pagina_inicio.html">Inicio</a>
           </li>
 
-          <li class="boton-menu">
+          <li class="boton-menu active">
             <a class="nav-link" href="inicio_sesion.html">iniciar sesion</a>
           </li>
        
-          <li class="boton-menu active">
+          <li class="boton-menu">
             <a class="nav-link" href="Registro_persona.html">Registro</a>
           </li>
 
@@ -53,24 +53,11 @@
 
   <!-- degradado con datos para registro-->
     
-      <div class="container p-5 my-5 contenedor-forms">
+      <div class="container p-5 my-5 contenedor-forms" >
         
         <form action="/action_page.php">
 
-          <!--PEDIMOS LOS DATOS DE REGISTRO-->
-          <!-- nombre y apellidos -->
-          <div class="input-group ">
-           
-            <input type="text" class="form-control" placeholder="Nombre">
-            <input type="text" class="form-control" placeholder="Apellido">
-
-          </div>
-
-          <!-- email -->
-          <div class="col form-floating mt-3 mb-3 ">
-            <input type="email" class="form-control" id="email" name="email" required autofocus>
-            <label for="email">Email:</label>
-          </div>
+          
           <!-- usuario -->
           <div class="col form-floating mt-3 mb-3 ">
             <input type="text" class="form-control" id="usuario" name="usuario" required>
@@ -83,39 +70,7 @@
           <label for="pwd">Password</label>
         </div>
 
-        <!-- Fecha de nacimiento -->
-        <div class="col form-floating mt-3 mb-3">
-          <input type="date" class="form-control" id="fecha_nac" name="fecha_nac" required>
-          <label for="fecha_nac">Fecha de nacimiento</label>
-        </div>
-
-         <!-- Elegir de una lista, tipo de usuario -->
-         <label for="rol" class="form-label">Elige tu tipo de cuenta</label>
-         <select class="form-select" id="rol" name="rol-usuario">
-           
-           <option>Cliente</option>
-           <option>Vendedor</option>
-           <option>Administrador*</option>
-         </select>
-
-
-           
-         </select>
-
-          <!-- Elegir de una lista, Genero -->
-          <label for="rol" class="form-label">Genero</label>
-          <select class="form-select" id="genero" name="genero">
-            <option>Femenino</option>
-            <option>Masculino</option>
-            <option>No-binario</option>
-            <option>Prefiero no especificar</option>
-          </select>
-
-               
-        <!-- imagen de usuario -->
-        <div class="col form-floating mt-3 mb-3">
-          <input type="file" class="form-control" id="imagen" name="imagen" required>
-          <label for="imagen">Imagen</label>
+        
         </div>
 
           <!-- Boton de submit -->
